@@ -1,2 +1,2 @@
 # marvel-comics-shop
-Loja de quadrinhos utlizadando a API da Marvel
+Loja de quadrinhos utlizando a API da Marvel
