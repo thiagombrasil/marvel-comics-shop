@@ -47,8 +47,7 @@ export const useComics = () => {
 
             comics.map((comic) => {
                 return comic['rare'] = false
-            }
-            );
+            });
 
             comics[key1].rare = true;
             comics[key2].rare = true;

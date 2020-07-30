@@ -1,7 +1,11 @@
 import React from 'react';
 
-export default function Checkout() {
+import ItensList from '../../components/ItensList';
+
+export default function Checkout(){
 	return (
-		<div>Seu Carrinho está vazio</div>
-	);
+		<div>
+			<ItensList />
+		</div>
+	)
 }

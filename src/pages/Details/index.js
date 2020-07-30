@@ -18,6 +18,8 @@ export default function Details() {
 
 	const description = details.description==null ? 'Descrição indisponível' : details.description;
 
+  console.log(details)
+
 	return (
     <div>
       {loading ? <Loading /> : (
@@ -40,6 +42,7 @@ export default function Details() {
                     <Typography variant="body2" gutterBottom>
                       {description}
                     </Typography>
+
 
                     <Typography className={classes.price} variant="h6" gutterBottom>
                       R$ 49,90
