@@ -19,10 +19,11 @@ export default function Home() {
 				<div>
 					<ListComics>
 						<Grid container className={classes.root} spacing={3}>
-							{comics.map((comic) =>(
+							{comics.map((comic) => (
 								<Grid key={comic.id} item sm={6} md={4} xs={12}>
 									<ComicCard
 										id={comic.id}
+										rare={comic.rare}
 										title={comic.title}
 										description={comic.description}
 										thumbnail={comic.thumbnail}

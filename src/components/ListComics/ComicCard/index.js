@@ -18,6 +18,8 @@ const ComicCard = (props) => {
         coverSource === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
         ? noImage : coverSource;
 
+        const rare = props.rare ? '- #Raro': '';
+
 	return (	
 		<Card className={classes.root}> 		
 
@@ -31,7 +33,7 @@ const ComicCard = (props) => {
         <CardActionArea component="div" className={classes.content}>               
           <CardContent>        	  
             <Typography variant="subtitle1">
-        	   {props.title}
+        	   {props.title} {rare}
         	  </Typography>
             <Typography variant="h6" className={classes.price}>
               R$ 48,90
