@@ -2,6 +2,16 @@
 
 Loja de quadrinhos utlizando a API MARVEL 
 
+## Sobre a Aplicação
+
+O aplicativo consiste em uma página principal com uma lista de quadrinhos, uma página de detalhes da compra, e uma página de checkout. 
+
+## Tecnologias
+
+  - [ReactJS](https://reactjs.org/)
+  - [Material-UI](https://material-ui.com)
+  - [Axios](https://github.com/axios/axios)
+
 ## Instalação
 
 ```bash
