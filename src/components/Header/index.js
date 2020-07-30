@@ -7,6 +7,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Fab from '@material-ui/core/Fab';
 import SearchIcon from '@material-ui/icons/Search';
+import IconButton from '@material-ui/core/IconButton';
+import Badge from '@material-ui/core/Badge';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Zoom from '@material-ui/core/Zoom';
 import { ThemeProvider } from '@material-ui/styles';
@@ -51,8 +54,8 @@ export default function Header(props) {
 	    	<AppBar color="primary">
 		        <Toolbar>				     
             		<Link to="/" className={classes.title}>
-                  <img src={marvel} alt="logo" className={classes.logo}></img>
-                </Link>
+                  		<img src={marvel} alt="logo" className={classes.logo}></img>
+                	</Link>
 		          	<div className={classes.search}>
 			            <div className={classes.searchIcon}>
 			              <SearchIcon />
@@ -66,6 +69,11 @@ export default function Header(props) {
 			              inputProps={{ 'aria-label': 'search' }}
 			            />
 		          	</div>
+		          	<IconButton component={Link} to={'/checkout'} aria-label="show 4 new mails" color="inherit">
+		              <Badge color="secondary">
+		                <ShoppingCartIcon />
+		              </Badge>
+		            </IconButton>
 		        </Toolbar>
 	    	</AppBar>
       </ThemeProvider>

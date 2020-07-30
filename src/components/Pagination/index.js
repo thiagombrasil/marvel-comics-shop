@@ -1,24 +1,14 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      marginTop: theme.spacing(2),
-    },
-  },
-}));
+import { useStyles } from './styles';
 
-export default function Pagination() {
+export default function HomePagination(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Pagination count={10} variant="outlined" />
-      <Pagination count={10} variant="outlined" color="primary" />
-      <Pagination count={10} variant="outlined" color="secondary" />
-      <Pagination count={10} variant="outlined" disabled />
+      <Pagination count={10} page={props.page} onChange={props.handleChange} size="large" color="secondary" />
     </div>
   );
 }

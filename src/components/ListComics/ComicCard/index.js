@@ -27,7 +27,7 @@ const ComicCard = (props) => {
     	    title={props.title}
 
         />
-        <Link className={classes.details} to={"/details/" + `${props.id}`}>
+        <Link className={classes.details} to={`/details/${props.id}`}>
         <CardActionArea component="div" className={classes.content}>               
           <CardContent>        	  
             <Typography variant="subtitle1">

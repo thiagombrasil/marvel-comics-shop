@@ -14,38 +14,21 @@ export const useComics = () => {
         const getComics = async () => {
             const newUrl = baseUrl + `?limit=18&offset=${offSet}&ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
 
-            axios.get(newUrl)
-                .then(response => {
-                setComics(response.data.data.results);
-            });
+            const response = await axios.get(newUrl);
+            const comics = response.data.data.results;
+
+            setComics(comics);
+
+            setLoad(false);
         }
 
         getComics();
     }, [offSet]);
 
-	const handlePrevClick = () => {
-        var newPage = page - 1;
-        var newOffSet = offSet - 8;
+    const handleChange = (event, value) => {
+        setPage(value);
+        setOffSet((value - 1) * 18);
+    };
 
-        if(newPage <= 1){
-            newPage = 1;
-        }
-
-        if(newOffSet <= 0){
-            newOffSet = 0;
-        }
-
-        setPage(newPage);
-        setOffSet(newOffSet);
-    }
-
-    const handleNextClick = () => {
-        const newPage = page + 1;
-        const newOffSet = offSet + 8;
-
-        setPage(newPage);
-        setOffSet(newOffSet);
-    }
-
-    return [{comics, offSet, page}, handleNextClick, handlePrevClick];
+    return [{comics, page, load}, handleChange];
 }
