@@ -18,7 +18,7 @@ const ComicCard = (props) => {
         coverSource === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
         ? noImage : coverSource;
 
-        const rare = props.rare ? '- #Raro': '';
+        const rare = props.rare ? classes.rare: '';
 
 	return (	
 		<Card className={classes.root}> 		
@@ -31,12 +31,12 @@ const ComicCard = (props) => {
         />
         <Link className={classes.details} to={`/details/${props.id}`}>
         <CardActionArea component="div" className={classes.content}>               
-          <CardContent>        	  
-            <Typography variant="subtitle1">
-        	   {props.title} {rare}
+          <CardContent className={rare}>        	  
+            <Typography variant="subtitle2">
+        	   {props.title}
         	  </Typography>
             <Typography variant="h6" className={classes.price}>
-              R$ 48,90
+              R$ 49.90
             </Typography>
       	  </CardContent>    	  
         </CardActionArea>

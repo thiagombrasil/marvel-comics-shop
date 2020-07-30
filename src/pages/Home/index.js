@@ -25,7 +25,7 @@ export default function Home() {
 										id={comic.id}
 										rare={comic.rare}
 										title={comic.title}
-										description={comic.description}
+										price={comic.price}
 										thumbnail={comic.thumbnail}
 										/>
 								</Grid>

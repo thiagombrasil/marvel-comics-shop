@@ -16,7 +16,7 @@ export const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     bottom: 10,
     left: 16,
-    color: '#333',
+    color: '#388e3c',
   },
   content: {
     flex: '1 0 auto',
@@ -24,4 +24,7 @@ export const useStyles = makeStyles((theme) => ({
   cover: {
     width: 140,
   },
+  rare: {
+    color: '#b22a00',
+  }
 }));
