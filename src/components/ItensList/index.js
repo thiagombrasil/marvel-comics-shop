@@ -43,7 +43,7 @@ export default function ItensList() {
 		        <Grid item xs={12} md={6}>
 		          <Paper className={classes.paper} variant="outlined" elevation={1}>
 		          	<form className={classes.form}noValidate autoComplete="off">
-				      <TextField id="outlined-basic" label="Calcular frete" variant="outlined" />
+				      <TextField id="frete" label="Calcular frete" variant="outlined" />
 				    </form>
 				    <Button variant="contained" size="small" disableElevation>Calcular</Button>
 		          </Paper>
@@ -51,7 +51,7 @@ export default function ItensList() {
 		        <Grid item xs={12} md={6}>
 		          <Paper className={classes.paper} variant="outlined" elevation={1}>
 		          	<form className={classes.form} noValidate autoComplete="off">
-				      <TextField id="outlined-basic" label="Cupom" variant="outlined" />
+				      <TextField id="cupom" label="Cupom" variant="outlined" />
 				    </form>
 				    <Button variant="contained" size="small" disableElevation>Aplicar</Button>
 		          </Paper>

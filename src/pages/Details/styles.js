@@ -19,15 +19,26 @@ export const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    [theme.breakpoints.up('sm')]: {
+      height: 370,
+    },
   },
   cover: {
-  	width: '65%',
+    maxHeight: 330,
+    [theme.breakpoints.down('xs')]: {
+      maxHeight: 'none',
+      width: '100%',
+    },
   },
   content: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
   	textAlign: 'left',
   	color: '#333',
   },
   price: {
+    flex: 1,
     marginTop: 20,
   	color: '#388e3c',
   },

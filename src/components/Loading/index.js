@@ -13,8 +13,8 @@ export default function Loading() {
     <div className={classes.root}>
       <ThemeProvider theme={theme}>
         <Box>
-        <CircularProgress size={150} color="primary"className={classes.loading}/>
-        <Typography variant="h6" component="div" color="primary" style={{textAlign: 'center'}}>
+        <CircularProgress size={150} color="primary" className={classes.loading}/>
+        <Typography variant="h6" component="div" style={{textAlign: 'center', color: "#f44336"}}>
         	Carregando...
         </Typography>
         </Box>

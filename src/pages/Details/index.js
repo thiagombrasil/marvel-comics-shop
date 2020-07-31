@@ -33,36 +33,30 @@ export default function Details() {
             </Grid>
 
             <Grid item xs={12} sm={6}>
-                <Paper className={classes.paper} variant="outlined" elevation={1}>
-                  <div className={classes.content}>               
+                <Paper className={`${classes.paper} ${classes.content}`} variant="outlined" elevation={1}>            
                     <Typography variant="h6" gutterBottom>
                     {details.title}
-                    </Typography>
-                    
+                    </Typography>                    
                     <Typography variant="body2" gutterBottom>
                       {description}
                     </Typography>
-
-
-                    <Typography className={classes.price} variant="h6" gutterBottom>
-                      R$ 49,90
-                    </Typography>
-
-                    <ThemeProvider theme={theme}>
-                      <Link to="/checkout" style={{textDecoration: 'none'}}>
-                        <Button
-                          variant="contained"
-                          size="large"
-                          color="primary"
-                          disableElevation
-                          className={classes.button}
-                          startIcon={<AddShoppingCartIcon />}
-                        >
-                          COMPRAR
-                        </Button>
-                      </Link>
-                    </ThemeProvider>
-                  </div>
+                      <Typography className={classes.price} variant="h6" gutterBottom>
+                        R$ 49,90
+                      </Typography>
+                      <ThemeProvider theme={theme}>
+                        <Link to="/checkout" style={{textDecoration: 'none'}}>
+                          <Button
+                            variant="contained"
+                            size="large"
+                            color="primary"
+                            disableElevation
+                            className={classes.button}
+                            startIcon={<AddShoppingCartIcon />}
+                          >
+                            COMPRAR
+                          </Button>
+                        </Link>
+                      </ThemeProvider>
                 </Paper>
             </Grid>
           </Grid>

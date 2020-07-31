@@ -22,47 +22,45 @@ export const useComics = () => {
         return {key1, key2};
     }
 
-    /* Funções para atribuições de preço
-    function getRndNum(min, max) {
-        return Math.random() * (max - min) + min;
-    }
-
-    function setPrices(item) {
-        item.rare ?
-            item['price'] = Number.parseFloat(getRndNum(100, 200)).toPrecision(5) :
-            item['price'] = Number.parseFloat(getRndNum(20, 80)).toPrecision(4)
-    }
-
-    */
-
-    console.log(comics);
+    
 
 	useEffect(() => {
         const getComics = async () => {
-            const newUrl = baseUrl + `?limit=18&offset=${offSet}&ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
+        const newUrl = baseUrl + `?limit=18&offset=${offSet}&ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
 
-            const response = await axios.get(newUrl);
-            const comics = response.data.data.results;
-            const {key1, key2} = randomComic();
+        const response = await axios.get(newUrl);
+        const comics = response.data.data.results;
+        const {key1, key2} = randomComic();
 
-            comics.map((comic) => {
-                return comic['rare'] = false
-            });
+        comics.map((comic) => {
+            return comic['rare'] = false
+        });
 
-            comics[key1].rare = true;
-            comics[key2].rare = true;
+        comics[key1].rare = true;
+        comics[key2].rare = true;
 
-            setComics(comics);
+        setComics(comics);
 
-            setLoad(false);
+        setLoad(false);
         }
 
         getComics();
+
     }, [offSet]);
+
+    function scrollToTop(){
+        const element = document.querySelector('#back-to-top-anchor');
+
+        if(element){
+            element.scrollIntoView();
+        }
+    }
 
     const handleChange = (event, value) => {
         setPage(value);
         setOffSet((value - 1) * 18);
+
+        scrollToTop();
     };
 
     return [{comics, page, load}, handleChange];
