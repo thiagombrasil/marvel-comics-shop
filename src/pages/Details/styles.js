@@ -16,8 +16,8 @@ export const useStyles = makeStyles((theme) => ({
     padding: 20,
   },
   paper: {
-    padding: theme.spacing(2),
     textAlign: 'center',
+    padding: theme.spacing(2),
     color: theme.palette.text.secondary,
     [theme.breakpoints.up('sm')]: {
       height: 370,
@@ -34,7 +34,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
-  	textAlign: 'left',
+    textAlign: 'left',
   	color: '#333',
   },
   price: {
