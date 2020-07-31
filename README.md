@@ -6,7 +6,7 @@ Loja de quadrinhos utlizando a API MARVEL
 
 O aplicativo consiste em uma página principal com lista de quadrinhos, uma página de detalhes da compra, e uma página de checkout.
 
-Você pode acessar a aplicação em funcionamento pelo link: https://marvel-comics-shop.netlify.app
+Você pode ver a aplicação em funcionamento pelo link: https://marvel-comic-shop.netlify.app
 
 ## Tecnologias
 
