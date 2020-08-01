@@ -12,13 +12,11 @@ import { useStyles, theme } from './styles';
 import { useDetail } from '../../hooks/useDetail';
 import Loading from '../../components/Loading';
 
-export default function Details() {
+export default function Details(props) {
 	const [ details, cover, loading] = useDetail();
 	const classes = useStyles();
 
 	const description = details.description==null ? 'Descrição indisponível' : details.description;
-
-  console.log(details)
 
 	return (
     <div>
@@ -27,8 +25,8 @@ export default function Details() {
           <Grid container spacing={1}>
             
             <Grid item xs={12} sm={6}>
-                <Paper className={classes.paper} variant="outlined" elevation={1}>
-                  <img src={cover} alt="cover" className={classes.cover}/>
+                <Paper className={`${classes.paper} ${classes.cover}`} variant="outlined" elevation={1}>
+                  <img src={cover} alt="cover" className={classes.coverImg}/>
                 </Paper>
             </Grid>
 
@@ -37,10 +35,10 @@ export default function Details() {
                     <Typography variant="h6" gutterBottom>
                     {details.title}
                     </Typography>                    
-                    <Typography variant="body2" gutterBottom>
+                    <Typography className={classes.item} variant="body2" gutterBottom>
                       {description}
                     </Typography>
-                      <Typography className={classes.price} variant="h6" gutterBottom>
+                      <Typography className={`${classes.price} `} variant="h6" gutterBottom>
                         R$ 49,90
                       </Typography>
                       <ThemeProvider theme={theme}>

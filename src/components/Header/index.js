@@ -12,7 +12,7 @@ import { ThemeProvider } from '@material-ui/styles';
 
 import { useStyles, theme } from './styles.js';
 import marvel from '../../assets/marvel.svg';
-import SearchInput from '../SearchInput';
+//import SearchInput from '../SearchInput';
 import ScrollTop from '../ScrollTop';
 
 export default function Header(props) {
@@ -27,7 +27,7 @@ export default function Header(props) {
 	            		<Link to="/" className={classes.title}>
 	                  		<img src={marvel} alt="logo" className={classes.logo}></img>
 	                	</Link>
-			          	<SearchInput/>
+			          	
 			          	<IconButton component={Link} to={'/checkout'} aria-label="show 4 new mails" color="inherit">
 			              <Badge color="secondary">
 			                <ShoppingCartIcon />

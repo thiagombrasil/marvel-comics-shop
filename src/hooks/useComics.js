@@ -22,8 +22,6 @@ export const useComics = () => {
         return {key1, key2};
     }
 
-    
-
 	useEffect(() => {
         const getComics = async () => {
         const newUrl = baseUrl + `?limit=18&offset=${offSet}&ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;

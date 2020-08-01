@@ -20,11 +20,16 @@ export const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     color: theme.palette.text.secondary,
     [theme.breakpoints.up('sm')]: {
-      height: 370,
+      height: 500,
     },
   },
   cover: {
-    maxHeight: 330,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItens: 'center',
+  },
+  coverImg: {
+    maxHeight: 500,
     [theme.breakpoints.down('xs')]: {
       maxHeight: 'none',
       width: '100%',
@@ -33,12 +38,16 @@ export const useStyles = makeStyles((theme) => ({
   content: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-around',
     textAlign: 'left',
   	color: '#333',
+    [theme.breakpoints.down('xs')]: {
+      maxHeight: 'none',
+    },
+  },
+  item: {
+    flex: 1,
   },
   price: {
-    flex: 1,
     marginTop: 20,
   	color: '#388e3c',
   },
