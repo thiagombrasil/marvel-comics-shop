@@ -17,6 +17,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   paper: {
     textAlign: 'center',
+    heigth: 'auto',
     padding: theme.spacing(2),
     color: theme.palette.text.secondary,
     [theme.breakpoints.up('sm')]: {
