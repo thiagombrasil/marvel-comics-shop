@@ -11,11 +11,11 @@ import Pagination from '../../components/Pagination';
 
 export default function Home() {
 	const classes = useStyles();
-	const [{comics, page, loading}, handleChange] = useComics();
+	const [{comics, page, load}, handleChange] = useComics();
 
 	return(
 		<div className={classes.container}>
-			{loading ? <Loading /> : (
+			{load ? <Loading /> : (
 				<div>
 					<ListComics>
 						<Grid container className={classes.root} spacing={3}>

@@ -23,8 +23,6 @@ export const useDetail = () => {
 
         setDetails(details);
         setCover(cover);
-
-
         setLoading(false);
     }
 

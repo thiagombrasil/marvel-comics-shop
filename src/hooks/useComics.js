@@ -8,7 +8,7 @@ export const useComics = () => {
 	const [comics, setComics] = useState([]);
 	const [offSet, setOffSet] = useState(0);
 	const [page, setPage] = useState(1);
-    //const [load, setLoad] = useState(true);
+    const [load, setLoad] = useState(true);
 
     const randomComic = () => {
         let key1 = Math.floor(Math.random() * 18);
@@ -24,22 +24,21 @@ export const useComics = () => {
 
 	useEffect(() => {
         const getComics = async () => {
-        const newUrl = baseUrl + `?limit=18&offset=${offSet}&ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
+            const newUrl = baseUrl + `?limit=18&offset=${offSet}&ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
 
-        const response = await axios.get(newUrl);
-        const comics = response.data.data.results;
-        const {key1, key2} = randomComic();
+            const response = await axios.get(newUrl);
+            const comics = response.data.data.results;
+            const {key1, key2} = randomComic();
 
-        comics.map((comic) => {
-            return comic['rare'] = false
-        });
+            comics.map((comic) => {
+                return comic['rare'] = false
+            });
 
-        comics[key1].rare = true;
-        comics[key2].rare = true;
+            comics[key1].rare = true;
+            comics[key2].rare = true;
 
-        setComics(comics);
-
-        //setLoad(false);
+            setComics(comics);
+            setLoad(false);
         }
 
         getComics();
@@ -61,5 +60,5 @@ export const useComics = () => {
         scrollToTop();
     };
 
-    return [{comics, page}, handleChange];
+    return [{comics, page, load}, handleChange];
 }
