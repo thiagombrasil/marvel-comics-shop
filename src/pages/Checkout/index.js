@@ -20,7 +20,7 @@ function NoItens(){
 function Checkout(props){
 	const classes = useStyles();
 
-	console.log(props)
+	console.log(props.comics)
 
 	return (
 		<div className={classes.container}>

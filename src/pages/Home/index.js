@@ -14,7 +14,7 @@ export default function Home() {
 	const [{comics, page, loading}, handleChange] = useComics();
 
 	return(
-		<div>
+		<div className={classes.container}>
 			{loading ? <Loading /> : (
 				<div>
 					<ListComics>

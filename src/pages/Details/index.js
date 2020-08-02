@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { useDetail } from '../../hooks/useDetail';
 import Loading from '../../components/Loading';
 import ComicDetails from '../../components/ComicDetails';
@@ -14,6 +13,7 @@ export default function Details() {
         <Loading /> : (
           <div>
             <ComicDetails
+              comic={details}
               title={details.title}
               description={description}
               cover={cover}

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -8,16 +10,19 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import { ThemeProvider } from '@material-ui/styles';
 
 import { useStyles, theme } from './styles';
+import * as comicsActions from '../../store/actions/comics';
 
-export default function Details(props) {
+function Details({comic, cover, title, description, addComic}) {
   const classes = useStyles();
+
+  console.log(comic)
 
   return (
         <div className={classes.root}>
           <Grid container spacing={1}>
             <Grid item xs={12} sm={6}>
               <Paper className={`${classes.paper} ${classes.cover}`} variant="outlined" elevation={1}>
-                <img src={props.cover} alt="cover" className={classes.coverImg}/>
+                <img src={cover} alt="cover" className={classes.coverImg}/>
               </Paper>
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -27,10 +32,10 @@ export default function Details(props) {
                   elevation={1}
                   >            
                     <Typography variant="h6" gutterBottom>
-                      {props.title}
+                      {title}
                     </Typography>                    
                     <Typography className={classes.item} variant="body2" gutterBottom>
-                      {props.description}
+                      {description}
                     </Typography>
                     <Typography className={classes.price} variant="h6" gutterBottom>
                       R$ 49,90
@@ -46,6 +51,7 @@ export default function Details(props) {
                           disableElevation
                           className={classes.button}
                           startIcon={<AddShoppingCartIcon />}
+                          onClick={() => addComic(comic)}
                         >
                           COMPRAR
                         </Button>
@@ -57,3 +63,12 @@ export default function Details(props) {
         </div>
   );
 }
+
+const mapStateToProps = state => ({
+  comics: state.comics,
+});
+
+const mapDispatchToProps = dispatch => 
+  bindActionCreators(comicsActions, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

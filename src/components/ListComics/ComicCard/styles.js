@@ -6,9 +6,6 @@ export const useStyles = makeStyles((theme) => ({
     height: 200,
     textDecoration: 'none',
   },
-  details: {
-    
-  },
   price: {
     color: '#388e3c',
   },
@@ -17,8 +14,6 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'space-between',
     width: '70%',
-    textDecoration: 'none',
-    color: '#333',
   },
   cover: {
     width: 140,
@@ -28,6 +23,7 @@ export const useStyles = makeStyles((theme) => ({
     }
   },
   rare: {
-    color: '#b22a00',
+    color: '#f44336',
+    border: '1px solid #ff9800',
   }
 }));

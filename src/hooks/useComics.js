@@ -8,7 +8,7 @@ export const useComics = () => {
 	const [comics, setComics] = useState([]);
 	const [offSet, setOffSet] = useState(0);
 	const [page, setPage] = useState(1);
-    const [load, setLoad] = useState(true);
+    //const [load, setLoad] = useState(true);
 
     const randomComic = () => {
         let key1 = Math.floor(Math.random() * 18);
@@ -39,7 +39,7 @@ export const useComics = () => {
 
         setComics(comics);
 
-        setLoad(false);
+        //setLoad(false);
         }
 
         getComics();
@@ -61,5 +61,5 @@ export const useComics = () => {
         scrollToTop();
     };
 
-    return [{comics, page, load}, handleChange];
+    return [{comics, page}, handleChange];
 }

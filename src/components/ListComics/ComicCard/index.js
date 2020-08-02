@@ -22,23 +22,21 @@ const ComicCard = (props) => {
 	return (	
 		<Card component={Link}
             to={`/details/${props.id}`}
-            className={classes.root}> 		
-
-        <CardMedia
-    	    className={classes.cover}
-    	    image={cover}
-    	    title={props.title}
-
-        />               
-        <CardContent className={`${rare} ${classes.container}`}>        	  
-            <Typography variant="subtitle2">
-                {props.title}
-            </Typography>
-            <Typography variant="h6" className={classes.price}>
-                R$ 49.90
-            </Typography>
-      	</CardContent>    	  
-    </Card>
+            className={`${rare} ${classes.root}`}>
+            <CardMedia
+        	    className={classes.cover}
+        	    image={cover}
+        	    title={props.title}
+            />               
+            <CardContent className={classes.container}>        	  
+                <Typography variant="subtitle2">
+                    {props.title}
+                </Typography>
+                <Typography variant="h6" className={classes.price}>
+                    R$ 49.90
+                </Typography>
+          	</CardContent>    	  
+        </Card>
 	)
 }
 
