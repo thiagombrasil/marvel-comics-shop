@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import ItensList from '../../components/ItensList';
+import ItemsList from '../../components/ItemsList';
 import { useStyles } from './styles';
 
 function NoItens(){
@@ -25,7 +25,7 @@ function Checkout(props){
 	return (
 		<div className={classes.container}>
 			{props.comics.length === 0 ? 
-				<NoItens /> : <ItensList />
+				<NoItens /> : <ItemsList />
 			}
 		</div>
 	)

@@ -27,7 +27,7 @@ export default function Home() {
 										title={comic.title}
 										price={comic.price}
 										thumbnail={comic.thumbnail}
-										/>
+									/>
 								</Grid>
 							))}
 						</Grid>

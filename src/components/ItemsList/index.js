@@ -16,7 +16,7 @@ import Typography from '@material-ui/core/Typography';
 
 import { useStyles } from './styles';
 
-export default function ItensList() {
+export default function ItemsList() {
   const classes = useStyles();
 
   return (

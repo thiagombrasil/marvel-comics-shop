@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
@@ -21,26 +20,24 @@ const ComicCard = (props) => {
     const rare = props.rare ? classes.rare: '';
 
 	return (	
-		<Card className={classes.root}> 		
+		<Card component={Link}
+            to={`/details/${props.id}`}
+            className={classes.root}> 		
 
         <CardMedia
     	    className={classes.cover}
     	    image={cover}
     	    title={props.title}
 
-        />
-        <Link className={classes.details} to={`/details/${props.id}`}>
-        <CardActionArea component="div" className={classes.content}>               
-          <CardContent className={rare}>        	  
+        />               
+        <CardContent className={`${rare} ${classes.container}`}>        	  
             <Typography variant="subtitle2">
-        	   {props.title}
-        	  </Typography>
-            <Typography variant="h6" className={classes.price}>
-              R$ 49.90
+                {props.title}
             </Typography>
-      	  </CardContent>    	  
-        </CardActionArea>
-        </Link>
+            <Typography variant="h6" className={classes.price}>
+                R$ 49.90
+            </Typography>
+      	</CardContent>    	  
     </Card>
 	)
 }
