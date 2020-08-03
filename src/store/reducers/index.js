@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import comics from './comics';
+import cart from './cart';
 
 export default combineReducers({
-  comics,
+  cart,
 });

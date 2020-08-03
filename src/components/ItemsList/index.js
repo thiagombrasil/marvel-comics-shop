@@ -8,30 +8,22 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import Paper from '@material-ui/core/Paper';
 
 import { useStyles } from './styles';
-import * as comicsActions from '../../store/actions/comics';
+import * as cartActions from '../../store/actions/cart';
 
-function dataCreate(id, title, thumbnail, price, quantity) {
-  return { id, title, thumbnail, price, quantity }
-}
-
-function ItemsList({comics, cleanComics}) {
+function ItemsList({cart, cleanCart, removeItem}) {
   const classes = useStyles();
-  const items = 
-    comics.map(item => (
-      dataCreate(item.id, item.title, item.thumbnail, item.price, item.quantity)
-    ))
 
   return (
     <div>
-    {items.map((item) => (
-        <Paper className={classes.container}>
+    {cart.items.map((item, index) => (
+        <Paper key={index} className={classes.container}>
             <img src={item.thumbnail} alt="thumbnail" className={classes.thumbnail}/>
             <h4 className={classes.title}>{item.title}</h4>
             <div style={{display: 'flex'}}>
-              <IconButton aria-label="delete">
+              <IconButton  aria-label="delete" onClick={() => removeItem(item.id)}>
                 <DeleteIcon />
               </IconButton>
-              <div>
+              <div className={classes.qtyButton}>
                 <IconButton style={{color: '#388e3c'}} aria-label="add">
                   <AddIcon/>
                 </IconButton>
@@ -44,16 +36,16 @@ function ItemsList({comics, cleanComics}) {
             <h4 className={classes.finalPrice}>{(item.price * item.quantity)}</h4>
         </Paper>
       ))}
-      <button onClick={() => cleanComics()}>Limpar carrinho</button>
+      <button onClick={() => cleanCart()}>Limpar carrinho</button>
     </div>
   );
 }
 
 const mapStateToProps = state => ({
-  comics: state.comics,
+  cart: state.cart,
 });
 
 const mapDispatchToProps = dispatch => 
-  bindActionCreators(comicsActions, dispatch)
+  bindActionCreators(cartActions, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemsList);

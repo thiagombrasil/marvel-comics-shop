@@ -22,9 +22,11 @@ function NoItens(){
 function Checkout(props){
 	const classes = useStyles();
 
+	console.log(props)
+
 	return (
 		<div>
-			{props.comics.length === 0 ? 
+			{props.cart.items.length === 0 ? 
 				<NoItens /> : <div className={classes.container}><ItemsList /></div>
 			}
 		</div>
@@ -32,7 +34,7 @@ function Checkout(props){
 }
 
 const mapStateToProps = state => ({
-  comics: state.comics,
+  cart: state.cart,
 });
 
 export default connect(mapStateToProps)(Checkout);

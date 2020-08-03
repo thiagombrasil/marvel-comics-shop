@@ -10,9 +10,9 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import { ThemeProvider } from '@material-ui/styles';
 
 import { useStyles, theme } from './styles';
-import * as comicsActions from '../../store/actions/comics';
+import * as cartActions from '../../store/actions/cart';
 
-function Details({comicId, cover, title, description, addComic}) {
+function Details({comicId, cover, title, description, addItem}) {
   const classes = useStyles();
   const comic = {
     id: comicId,
@@ -56,7 +56,7 @@ function Details({comicId, cover, title, description, addComic}) {
                       disableElevation
                       className={classes.button}
                       startIcon={<AddShoppingCartIcon />}
-                      onClick={() => addComic(comic)}
+                      onClick={() => addItem(comic)}
                     >
                       COMPRAR
                     </Button>
@@ -70,10 +70,10 @@ function Details({comicId, cover, title, description, addComic}) {
 }
 
 const mapStateToProps = state => ({
-  comics: state.comics
+  cart: state.cart
 });
 
 const mapDispatchToProps = dispatch => 
-  bindActionCreators(comicsActions, dispatch)
+  bindActionCreators(cartActions, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Details);

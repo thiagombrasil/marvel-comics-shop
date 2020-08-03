@@ -15,7 +15,11 @@ export const useStyles = makeStyles({
   },
   title: {
   	flexGrow: 1,
-  	flexBasis: 158
+  	flexBasis: 158,
+  },
+  qtyButton: {
+    flexGrow: 1,
+    flexBasis: 100,
   },
   finalPrice: {
   	flexGrow: 1,
