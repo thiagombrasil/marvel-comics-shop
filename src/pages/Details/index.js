@@ -16,7 +16,7 @@ export default function Details() {
         <Loading /> : (
           <div>
             <ComicDetails
-              comic={details}
+              comicId={details.id}
               title={details.title}
               description={description}
               cover={cover}

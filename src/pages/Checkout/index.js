@@ -9,10 +9,12 @@ function NoItens(){
 	const classes = useStyles();
 
 	return (
-		<div>
+		<div className={classes.container}>
+			<div>
 			<h1>Não há Itens no Carrinho</h1>
 			<p>Seu carrinho de compras está vazio</p>
 			<p>Clique <Link className={classes.link} to="/">aqui</Link> para continuar as compras</p>
+			</div>
 		</div>
 	)
 }
@@ -20,12 +22,10 @@ function NoItens(){
 function Checkout(props){
 	const classes = useStyles();
 
-	console.log(props.comics)
-
 	return (
-		<div className={classes.container}>
+		<div>
 			{props.comics.length === 0 ? 
-				<NoItens /> : <ItemsList />
+				<NoItens /> : <div className={classes.container}><ItemsList /></div>
 			}
 		</div>
 	)

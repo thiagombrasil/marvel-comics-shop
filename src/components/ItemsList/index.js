@@ -1,71 +1,59 @@
 import React from 'react';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Grid from '@material-ui/core/Grid';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-
-//import { bindActionCreators } from 'redux';
-//import * as comicsActions from '../../store/actions/comics';
 
 import { useStyles } from './styles';
+import * as comicsActions from '../../store/actions/comics';
 
-export default function ItemsList() {
+function dataCreate(id, title, thumbnail, price, quantity) {
+  return { id, title, thumbnail, price, quantity }
+}
+
+function ItemsList({comics, cleanComics}) {
   const classes = useStyles();
+  const items = 
+    comics.map(item => (
+      dataCreate(item.id, item.title, item.thumbnail, item.price, item.quantity)
+    ))
 
   return (
-
-  	<div className={classes.container}>
-	    <TableContainer component={Paper}>
-	      <Table className={classes.table} aria-label="simple table">
-	        <TableHead>
-	          <TableRow>
-	            <TableCell align="center"></TableCell>
-	            <TableCell align="center">Nome do produto</TableCell>
-	            <TableCell align="center">Preço Unitário</TableCell>
-	            <TableCell align="center">Quant.</TableCell>
-	            <TableCell align="center">Subtotal</TableCell>
-	          </TableRow>
-	        </TableHead>
-	        <TableBody>
-	        	<TableRow>
-	     			<TableCell align="right">Não há itens no carrinho</TableCell>
-	     		</TableRow>
-	        </TableBody>
-	      </Table>
-	    </TableContainer>
-
-	    <div className={classes.root}>
-      		<Grid container spacing={1}>
-		        <Grid item xs={12} md={6}>
-		          <Paper className={classes.paper} variant="outlined" elevation={1}>
-		          	<form className={classes.form}noValidate autoComplete="off">
-				      <TextField id="frete" label="Calcular frete" variant="outlined" />
-				    </form>
-				    <Button variant="contained" size="small" disableElevation>Calcular</Button>
-		          </Paper>
-		        </Grid>
-		        <Grid item xs={12} md={6}>
-		          <Paper className={classes.paper} variant="outlined" elevation={1}>
-		          	<form className={classes.form} noValidate autoComplete="off">
-				      <TextField id="cupom" label="Cupom" variant="outlined" />
-				    </form>
-				    <Button variant="contained" size="small" disableElevation>Aplicar</Button>
-		          </Paper>
-		        </Grid>
-		        <Grid item xs={12}>
-		          <Paper className={classes.paper} variant="outlined" elevation={1}>
-		          	<Typography variant="h6" className={classes.total}>Total geral</Typography>
-		          </Paper>
-		        </Grid>
-	      	</Grid>
-    </div>
+    <div>
+    {items.map((item) => (
+        <Paper className={classes.container}>
+            <img src={item.thumbnail} alt="thumbnail" className={classes.thumbnail}/>
+            <h4 className={classes.title}>{item.title}</h4>
+            <div style={{display: 'flex'}}>
+              <IconButton aria-label="delete">
+                <DeleteIcon />
+              </IconButton>
+              <div>
+                <IconButton style={{color: '#388e3c'}} aria-label="add">
+                  <AddIcon/>
+                </IconButton>
+                {item.quantity}
+                <IconButton style={{color: '#f44336'}} aria-label="remove">
+                  <RemoveIcon />
+                </IconButton>
+              </div>
+            </div>
+            <h4 className={classes.finalPrice}>{(item.price * item.quantity)}</h4>
+        </Paper>
+      ))}
+      <button onClick={() => cleanComics()}>Limpar carrinho</button>
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  comics: state.comics,
+});
+
+const mapDispatchToProps = dispatch => 
+  bindActionCreators(comicsActions, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemsList);

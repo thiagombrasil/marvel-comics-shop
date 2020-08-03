@@ -4,3 +4,9 @@ export function addComic(comic) {
     comic,
   };
 }
+
+export function cleanComics(comic) {
+  return {
+    type: 'CLEAN_COMICS',
+  };
+}
