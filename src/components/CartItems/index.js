@@ -10,22 +10,26 @@ import Paper from '@material-ui/core/Paper';
 import { useStyles } from './styles';
 import * as cartActions from '../../store/actions/cart';
 
+function itemTotal(price, qty) {
+    const value = (price * qty).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    return value
+}
+
 function ItemsList({cart, cleanCart, removeItem, qtyIncrement, qtyDecrement}) {
   const classes = useStyles();
 
   return (
-    <div>
+    <div style={{width: '80%'}}>
     {cart.items.map((item, index) => (
-        <Paper key={index} className={classes.container}>
+        <Paper key={index} className={classes.container} >
             <img src={item.thumbnail} alt="thumbnail" className={classes.thumbnail}/>
             <h4 className={classes.title}>{item.title}</h4>
-            <div style={{display: 'flex'}}>
+            <div className={classes.options}>
               <IconButton  aria-label="delete" onClick={() => removeItem(item.id)}>
                 <DeleteIcon />
               </IconButton>
-              <div className={classes.qtyButton}>
-                <IconButton aria-label="remove" onClick={() => qtyDecrement(item.id)}
-                >
+              <div>
+                <IconButton aria-label="remove" onClick={() => qtyDecrement(item.id)}>
                   <RemoveIcon />
                 </IconButton>
                 {item.quantity}
@@ -34,10 +38,12 @@ function ItemsList({cart, cleanCart, removeItem, qtyIncrement, qtyDecrement}) {
                 </IconButton>
               </div>
             </div>
-            <h4 className={classes.finalPrice}>{(item.price * item.quantity)}</h4>
+            <h4 className={classes.itemTotal}>{itemTotal(item.price, item.quantity)}</h4>
         </Paper>
       ))}
-      <button onClick={() => cleanCart()}>Limpar carrinho</button>
+      <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+        <button onClick={() => cleanCart()}>Limpar carrinho</button>
+      </div>
     </div>
   );
 }

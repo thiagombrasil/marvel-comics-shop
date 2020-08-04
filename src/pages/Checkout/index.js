@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import ItemsList from '../../components/ItemsList';
 import { useStyles } from './styles';
+import CartItems from '../../components/CartItems';
+import CartCalculation from '../../components/CartCalculation';
 
 function NoItens(){
 	const classes = useStyles();
@@ -22,12 +23,14 @@ function NoItens(){
 function Checkout(props){
 	const classes = useStyles();
 
-	console.log(props)
-
 	return (
 		<div>
 			{props.cart.items.length === 0 ? 
-				<NoItens /> : <div className={classes.container}><ItemsList /></div>
+				<NoItens /> :
+				<div className={classes.container}>
+					<CartItems />
+					<CartCalculation />
+				</div>
 			}
 		</div>
 	)

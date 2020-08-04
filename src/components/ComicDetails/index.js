@@ -18,7 +18,7 @@ function Details({comicId, cover, title, description, addItem}) {
     id: comicId,
     title: title,
     thumbnail: cover,
-    price: 49.95,
+    price: 49.90,
     quantity: 1,
   }
 

@@ -11,19 +11,20 @@ export const useStyles = makeStyles({
   },
   thumbnail: {
   	height: 120,
-  	marginRight: 10
+  	marginRight: 10,
+    border: '1px solid #f0f0f0',
   },
   title: {
-  	flexGrow: 1,
-  	flexBasis: 158,
+    width: 300,
+    textAlign: 'center',
   },
-  qtyButton: {
-    flexGrow: 1,
-    flexBasis: 100,
+  options: {
+    flexGrow: 2,
+    justifyContent: 'center',
+    display: 'flex'
   },
-  finalPrice: {
-  	flexGrow: 1,
-  	flexBasis: 100,
-  	textAlign: 'center'
+  itemTotal: {
+    width: 200,
+    textAlign: 'center'
   },
 });
