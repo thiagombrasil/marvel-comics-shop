@@ -14,6 +14,14 @@ export default function cart(state = initialState, action) {
     	return {items: []}
     case 'REMOVE_ITEM':
       return {items: state.items.filter((item) => item.id !== action.id)}
+    case 'QTY_INCREMENT':
+      return {items: state.items.map(item =>
+        item.id === action.id ? { ...item, quantity: item.quantity + 1 } : item
+      )}
+    case 'QTY_DECREMENT':
+      return {items: state.items.map(item =>
+        item.id === action.id && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item
+      )}
     default:
       return state;
   }

@@ -1,7 +1,7 @@
 export function addItem(item) {
   return {
     type: 'ADD_ITEM',
-    item
+    item,
   };
 }
 
@@ -14,6 +14,20 @@ export function cleanCart() {
 export function removeItem(id) {
 	return {
 	    type: 'REMOVE_ITEM',
-	    id
+	    id,
 	};
+}
+
+export function qtyIncrement(id) {
+  return {
+      type: 'QTY_INCREMENT',
+      id,
+  };
+}
+
+export function qtyDecrement(id) {
+  return {
+      type: 'QTY_DECREMENT',
+      id,
+  };
 }

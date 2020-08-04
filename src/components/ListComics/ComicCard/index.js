@@ -14,8 +14,8 @@ const ComicCard = (props) => {
 
 	const coverSource = props.thumbnail.path + '.' + props.thumbnail.extension;
     const cover = 
-        coverSource === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
-        ? noImage : coverSource;
+        coverSource === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg" ?
+        noImage : coverSource;
 
     const rare = props.rare ? classes.rare: '';
 

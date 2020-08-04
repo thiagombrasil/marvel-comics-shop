@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import { useStyles } from './styles';
 import * as cartActions from '../../store/actions/cart';
 
-function ItemsList({cart, cleanCart, removeItem}) {
+function ItemsList({cart, cleanCart, removeItem, qtyIncrement, qtyDecrement}) {
   const classes = useStyles();
 
   return (
@@ -24,12 +24,13 @@ function ItemsList({cart, cleanCart, removeItem}) {
                 <DeleteIcon />
               </IconButton>
               <div className={classes.qtyButton}>
-                <IconButton style={{color: '#388e3c'}} aria-label="add">
-                  <AddIcon/>
+                <IconButton aria-label="remove" onClick={() => qtyDecrement(item.id)}
+                >
+                  <RemoveIcon />
                 </IconButton>
                 {item.quantity}
-                <IconButton style={{color: '#f44336'}} aria-label="remove">
-                  <RemoveIcon />
+                <IconButton aria-label="add" onClick={() => qtyIncrement(item.id)}>
+                  <AddIcon/>
                 </IconButton>
               </div>
             </div>
