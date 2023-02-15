@@ -1,6 +1,6 @@
 ## Marvel Comics Shop
 
-Loja de quadrinhos utlizando a API MARVEL 
+Loja de quadrinhos utilizando a API MARVEL 
 
 ## Sobre a Aplicação
 
